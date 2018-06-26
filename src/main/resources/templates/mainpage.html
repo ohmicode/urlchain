@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Url chain</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/site.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Chain your URL!</h2>
+        <p>Here you can create a short version of any web link. Just paste below your URL and get a shorter nice link with fewer letters in it.</p>
+    </div>
+
+    <div class="data">
+        <form method="post" action="/">
+            <input name="url" class="url-field"/>
+            <br/>
+            <input type="submit" value="Simplify"/>
+        </form>
+    </div>
+
+    <div th:if="${hasResult}" class="results">
+        <hr/>
+        <p>Your link</p>
+        <input readonly="readonly" th:value="${code}"/><br/>
+        <p>leads to</p>
+        <p th:text="${url}"/>
+    </div>
+
+    <div class="footer">
+        <p>© 2018 Chn.cloud</p>
+    </div>
+</body>
+</html>

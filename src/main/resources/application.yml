@@ -1,0 +1,21 @@
+site:
+  url: http://chn.cloud/
+
+spring:
+  application:
+    name: urlchain
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 0
+      idle-timeout: 1200000
+      max-lifetime: 2400000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    generate-ddl: false
+    show-sql: false
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true
+      hibernate.hbm2ddl.auto: validate
+  profiles:
+    active: local

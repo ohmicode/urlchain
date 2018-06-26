@@ -1,0 +1,39 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.data {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.data .url-field {
+    width: 100%;
+}
+
+.data input {
+    margin: 5px;
+}
+
+.results {
+    margin-top: 50px;
+    color: darkgray;
+    font-size: 12px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    text-align: right;
+    color: darkgray;
+    font-size: 10px;
+}
