@@ -10,6 +10,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.MvcResult
+import org.springframework.test.web.servlet.ResultActions
+import org.springframework.test.web.servlet.ResultHandler
 
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
@@ -28,14 +31,12 @@ class UrlControllerTest : BaseTest() {
 
     @Test
     fun testPutAndGet() {
+        val url = "http://facebook.com"
         mockMvc.perform(get("/api/")
-            .param("url", "http://facebook.com")
+            .param("url", url)
             .content(""))
             .andExpect(status().isOk())
-//            .andDo(assertWasCreated)
-
-        //TODO: assertWasCreated
-
+            .andDo(assertWasCreated(url))
     }
 
     @Test(expected = ApplicationException::class)
@@ -49,8 +50,28 @@ class UrlControllerTest : BaseTest() {
             .param("url", "http://google.com")
             .with(remoteAddr("1.1.1.1"))
             .content(""))
-            .andExpect(content().string("redirect:error"))  //TODO
+            .andExpect(content().string("redirect:error"))
+    }
 
+    @Test
+    fun shouldBlockFrequentIp() {
+        val ip = "198.162.0.1"
+        for (i in 1..10) urlController.increaseFrequency(ip)
+
+        mockMvc.perform(get("/api/")
+            .param("url", "http://google.com")
+            .with(remoteAddr(ip))
+            .content(""))
+            .andExpect(content().string("redirect:error"))
+    }
+
+    private fun assertWasCreated(url: String): ResultHandler {
+        return ResultHandler {
+            val code = it.response.contentAsString
+            mockMvc.perform(get("/api/" + code)
+                .content(""))
+                .andExpect(content().string(url))
+        }
     }
 
     // provides fake remote ip

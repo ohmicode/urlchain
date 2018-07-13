@@ -19,5 +19,5 @@ class RequestEntity(forSource: String) {
 
     var blockedUntil: Timestamp? = null
 
-    var count: Int = 1
+    var count: Int = 0
 }

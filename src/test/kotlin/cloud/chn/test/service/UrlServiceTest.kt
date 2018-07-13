@@ -1,5 +1,6 @@
 package cloud.chn.test.service
 
+import cloud.chn.exception.ApplicationException
 import cloud.chn.service.UrlService
 import cloud.chn.test.BaseTest
 import org.hamcrest.core.SubstringMatcher
@@ -23,14 +24,28 @@ class UrlServiceTest : BaseTest() {
 
     @Test
     fun testAddUrl() {
-        val result1 = urlService.shorten("http://google.com", "127.0.0.1")
+        val url1 = "http://google.com"
+        val result1 = urlService.shorten(url1, "127.0.0.1")
         Assert.assertThat(result1, StringConsistsOf(DEFAULT_LETTERS))
+        val stored1 = urlService.extract(result1)
+        Assert.assertEquals(url1, stored1)
 
-        val result2 = urlService.shorten("http://facebook.com", "127.0.0.1")
+        val url2 = "http://facebook.com"
+        val result2 = urlService.shorten(url2, "127.0.0.1")
         Assert.assertThat(result2, StringConsistsOf(DEFAULT_LETTERS))
+        val stored2 = urlService.extract(result2)
+        Assert.assertEquals(url2, stored2)
     }
 
-    //TODO: more tests
+    @Test(expected = ApplicationException::class)
+    fun testCodeNotInDb() {
+        val stored = urlService.extract("Z")
+    }
+
+    @Test(expected = ApplicationException::class)
+    fun testWrongCode() {
+        val stored = urlService.extract("admin.php")
+    }
 }
 
 class StringConsistsOf(substring: String) : SubstringMatcher(substring) {
