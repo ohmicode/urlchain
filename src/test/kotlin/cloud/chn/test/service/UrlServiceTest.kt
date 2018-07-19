@@ -1,6 +1,8 @@
 package cloud.chn.test.service
 
+import cloud.chn.entity.LinkEntity
 import cloud.chn.exception.ApplicationException
+import cloud.chn.repository.UrlRepository
 import cloud.chn.service.UrlService
 import cloud.chn.test.BaseTest
 import org.hamcrest.core.SubstringMatcher
@@ -21,6 +23,8 @@ class UrlServiceTest : BaseTest() {
 
     @Autowired
     private lateinit var urlService: UrlService
+    @Autowired
+    private lateinit var urlRepository: UrlRepository
 
     @Test
     fun testAddUrl() {
@@ -45,6 +49,21 @@ class UrlServiceTest : BaseTest() {
     @Test(expected = ApplicationException::class)
     fun testWrongCode() {
         val stored = urlService.extract("admin.php")
+    }
+
+    @Test(expected = ApplicationException::class)
+    fun testCodeWithWrongCharacters() {
+        val entityZ = LinkEntity()
+        entityZ.id = 48
+        entityZ.url = "http://google.com"
+        entityZ.source = "127.0.0.1"
+        urlRepository.save(entityZ)
+        val entityAa = LinkEntity()
+        entityAa.id = 49
+        entityAa.url = "http://facebook.com"
+        entityAa.source = "127.0.0.1"
+        urlRepository.save(entityAa)
+        val stored = urlService.extract("A0")
     }
 }
 

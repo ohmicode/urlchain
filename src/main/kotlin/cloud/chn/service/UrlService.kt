@@ -47,7 +47,12 @@ class UrlService(private val urlRepository: UrlRepository) {
     private fun decodeId(code: String): Long {
         var id = 0L
         for (i in 0 until code.length) {
-            id = id * SIZE + SYMBOLS.indexOf(code[i])
+            val char = code[i]
+            val charIndex = SYMBOLS.indexOf(char)
+            if (charIndex >= 0)
+                id = id * SIZE + charIndex
+            else
+                throw ApplicationException("illegal character $char found in code $code")
         }
         return id
     }
