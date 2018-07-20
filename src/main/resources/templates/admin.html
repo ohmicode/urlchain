@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Url chain</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/site.css">
+</head>
+<body>
+
+
+
+
+<table class="table datatable">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>created</th>
+        <th>updated</th>
+        <th>expired</th>
+        <th>url</th>
+        <th>source</th>
+        <th>permanent</th>
+        <th>flagged</th>
+        <th>test</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="link : ${links}">
+        <td th:text="${link.id}">Text ...</td>
+        <td th:text="${link.created}">Text ...</td>
+        <td th:text="${link.updated}">Text ...</td>
+        <td th:text="${link.expired}">Text ...</td>
+        <td th:text="${link.url}">Text ...</td>
+        <td th:text="${link.source}">Text ...</td>
+        <td th:text="${link.permanent}">Text ...</td>
+        <td th:text="${link.flagged}">Text ...</td>
+        <td th:text="${link.test}">Text ...</td>
+        <td><button type="button"
+                    class="btn btn-primary btn-condensed">
+            <i class="glyphicon glyphicon-folder-open"></i>
+        </button></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+<!--div class="table-pagination">
+    <ul class="pagination">
+        <li th:class="${contactsPage.number eq 0} ? 'disabled' : ''">
+            <a th:if="${not contactsPage.firstPage}" th:href="@{${'/contacts'}(page=${contactsPage.number-1},size=${contactsPage.size})}">Previous</a>
+            <a th:if="${contactsPage.firstPage}" href="javascript:void(0);">Previous</a>
+        </li>
+
+        <li th:each="pageNo : ${#numbers.sequence(0, contactsPage.totalPages - 1)}" th:class="${contactsPage.number eq pageNo}? 'active' : ''">
+            <a th:if="${contactsPage.number  eq pageNo}" href="javascript:void(0);">
+                <span th:text="${pageNo + 1}"></span>
+            </a>
+            <a th:if="${not (contactsPage.number  eq pageNo)}" th:href="@{${'/contacts'}(page=${pageNo},size=${contactsPage.size})}">
+                <span th:text="${pageNo + 1}"></span>
+            </a>
+
+        </li>
+        <li th:class="${contactsPage.number + 1 ge contactsPage.totalPages} ? 'disabled' : ''">
+            <a th:if="${not contactsPage.lastPage}" th:href="@{${'/contacts'}(page=${contactsPage.number+1},size=${contactsPage.size})}">Next</a>
+            <a th:if="${contactsPage.lastPage}" href="javascript:void(0);">Next</a>
+        </li>
+    </ul>
+</div-->
+
+
+
+
+</body>
+</html>

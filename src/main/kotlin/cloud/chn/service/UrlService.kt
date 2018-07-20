@@ -33,6 +33,10 @@ class UrlService(private val urlRepository: UrlRepository) {
         return encodeId(id)
     }
 
+    fun getLinks(): List<LinkEntity> {
+        return urlRepository.findAll()  //TODO: pageable
+    }
+
     private fun encodeId(id: Long): String {
         var number = id
         var code = ""
