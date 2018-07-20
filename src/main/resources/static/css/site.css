@@ -37,3 +37,11 @@ body {
     color: darkgray;
     font-size: 10px;
 }
+
+.disabled {
+    color: gray;
+}
+
+.active {
+    color: brown;
+}

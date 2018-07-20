@@ -3,6 +3,8 @@ package cloud.chn.service
 import cloud.chn.entity.LinkEntity
 import cloud.chn.exception.ApplicationException
 import cloud.chn.repository.UrlRepository
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 @Service
@@ -33,8 +35,8 @@ class UrlService(private val urlRepository: UrlRepository) {
         return encodeId(id)
     }
 
-    fun getLinks(): List<LinkEntity> {
-        return urlRepository.findAll()  //TODO: pageable
+    fun getLinks(pageable: Pageable): Page<LinkEntity> {
+        return urlRepository.findAll(pageable)
     }
 
     private fun encodeId(id: Long): String {
