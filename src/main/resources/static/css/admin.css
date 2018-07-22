@@ -2,16 +2,40 @@ body {
     padding: 20px;
 }
 
-.datatable td {
+.datatable th {
+    background: #BBB;
     padding: 5px;
 }
 
 .datatable tr:nth-child(even) {
-    background: #CCC;
+    background: #EEE;
 }
 
 .datatable tr:nth-child(odd) {
     background: #FFF;
+}
+
+.datatable td {
+    padding: 5px;
+}
+
+.preview {
+    width: 220px;
+    height: 100px;
+}
+
+.url-field {
+    min-width: 40%;
+}
+
+.source-field {
+    color: #9d9d9d;
+    font-size: 12px;
+    text-align: right;
+}
+
+.source-field:hover {
+    color: black;
 }
 
 .table-pagination ul.pagination {

@@ -8,32 +8,32 @@
 </head>
 <body>
 
-
-
-
 <table class="datatable">
     <thead>
     <tr>
-        <th>id</th>
-        <th>created</th>
-        <th>updated</th>
-        <th>expired</th>
-        <th>url</th>
-        <th>source</th>
-        <th>permanent</th>
-        <th>flagged</th>
-        <th>is test</th>
-        <th>actions</th>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Preview</th>
+        <th>Url</th>
+        <th>Source</th>
+        <th>Created</th>
+        <th>Permanent</th>
+        <th>Flagged</th>
+        <th>Is test</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="link : ${page.content}">
         <td th:text="${link.id}">Text ...</td>
-        <td th:text="${#dates.format(link.created, 'dd.MM.yyyy hh:mm')}">Text ...</td>
-        <td th:text="${#dates.format(link.updated, 'dd.MM.yyyy hh:mm')}">Text ...</td>
-        <td th:text="${#dates.format(link.expired, 'dd.MM.yyyy hh:mm')}">Text ...</td>
-        <td th:text="${link.url}">Text ...</td>
-        <td th:text="${link.source}">Text ...</td>
+        <td th:text="${@urlService.encodeId(link.id)}">Text ...</td>
+        <td class="preview"><img src="/img/placeholder.png"/></td>
+        <td th:text="${link.url}" class="url-field">Text ...</td>
+        <td th:text="${link.source}" class="source-field">Text ...</td>
+        <td th:text="${#dates.format(link.created, 'dd.MM.yyyy hh:mm')}"
+            th:title="${@adminController.getDatesHint(link.created, link.updated, link.expired)}">
+            Text ...
+        </td>
         <td th:text="${link.permanent}">Text ...</td>
         <td th:text="${link.flagged}">Text ...</td>
         <td th:text="${link.test}">Text ...</td>
@@ -44,9 +44,6 @@
     </tr>
     </tbody>
 </table>
-
-
-
 
 <div class="table-pagination">
     <ul class="pagination">
@@ -66,13 +63,10 @@
 
         <li th:class="${page.number + 1 ge page.totalPages} ? 'disabled' : ''">
             <a th:if="${not page.last}" th:href="@{${'/admin/'}(page=${page.number+1},size=${page.size})}">Next</a>
-            <a th:if="${page.last}" href="javascript:void(0);">Next</a>
+            <a th:if="${page.last}">Next</a>
         </li>
     </ul>
 </div>
-
-
-
 
 </body>
 </html>

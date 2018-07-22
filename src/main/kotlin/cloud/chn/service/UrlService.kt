@@ -39,7 +39,7 @@ class UrlService(private val urlRepository: UrlRepository) {
         return urlRepository.findAll(pageable)
     }
 
-    private fun encodeId(id: Long): String {
+    fun encodeId(id: Long): String {
         var number = id
         var code = ""
         while (number > 0) {

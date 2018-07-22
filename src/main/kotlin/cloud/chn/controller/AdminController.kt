@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.servlet.ModelAndView
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
 
 @Controller
 @Profile("local")
@@ -20,5 +22,13 @@ class AdminController(private val urlService: UrlService) {
 
         modelAndView.addObject("page", page)
         return modelAndView
+    }
+
+    fun getDatesHint(created: Timestamp, updated: Timestamp, expired: Timestamp?): String {
+        val dateFormat = SimpleDateFormat("dd.MM.yyyy hh:mm")
+        val expiredString = if (expired==null) "" else dateFormat.format(expired)
+        return "Created: " + dateFormat.format(created) + "\n" +
+                "Updated: " + dateFormat.format(created) + "\n" +
+                "Expired: " + expiredString
     }
 }
