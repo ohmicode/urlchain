@@ -1,0 +1,36 @@
+body {
+    padding: 20px;
+}
+
+.datatable td {
+    padding: 5px;
+}
+
+.datatable tr:nth-child(even) {
+    background: #CCC;
+}
+
+.datatable tr:nth-child(odd) {
+    background: #FFF;
+}
+
+.table-pagination ul.pagination {
+    text-align: center;
+}
+
+.table-pagination ul.pagination li {
+    display: inline-block;
+    padding: 7px;
+}
+
+.table-pagination ul.pagination a {
+    color: #9d9d9d;
+}
+
+.table-pagination ul.pagination li.active a {
+    color: magenta;
+}
+
+.table-pagination ul.pagination a:hover {
+    color: #EE1C25;
+}

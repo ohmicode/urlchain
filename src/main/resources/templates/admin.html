@@ -3,14 +3,15 @@
 <head>
     <title>Url chain</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="css/site.css">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
 </head>
 <body>
 
 
 
 
-<table class="table datatable">
+<table class="datatable">
     <thead>
     <tr>
         <th>id</th>
@@ -28,9 +29,9 @@
     <tbody>
     <tr th:each="link : ${page.content}">
         <td th:text="${link.id}">Text ...</td>
-        <td th:text="${link.created}">Text ...</td>
-        <td th:text="${link.updated}">Text ...</td>
-        <td th:text="${link.expired}">Text ...</td>
+        <td th:text="${#dates.format(link.created, 'dd.MM.yyyy hh:mm')}">Text ...</td>
+        <td th:text="${#dates.format(link.updated, 'dd.MM.yyyy hh:mm')}">Text ...</td>
+        <td th:text="${#dates.format(link.expired, 'dd.MM.yyyy hh:mm')}">Text ...</td>
         <td th:text="${link.url}">Text ...</td>
         <td th:text="${link.source}">Text ...</td>
         <td th:text="${link.permanent}">Text ...</td>
