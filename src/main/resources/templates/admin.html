@@ -9,12 +9,6 @@
 </head>
 <body onload="afterLoad()">
 
-
-
-<div id="demo"><img src="/img/placeholder.png"/></div>
-
-
-
 <table class="datatable">
     <thead>
     <tr>
@@ -32,7 +26,7 @@
     <tr th:each="link : ${page.content}">
         <td th:text="${link.id}">Text ...</td>
         <td th:text="${@urlService.encodeId(link.id)}">Text ...</td>
-        <td class="preview"><img src="/img/placeholder.png"/></td>
+        <td th:id="${'prev'+link.id}" class="preview-container"><img class="preview" src="/img/placeholder.png"/></td>
         <td th:text="${link.url}" class="url-field">Text ...</td>
         <td th:text="${link.source}" class="source-field">Text ...</td>
         <td th:text="${#dates.format(link.created, 'dd.MM.yyyy hh:mm')}"
@@ -40,7 +34,7 @@
             Text ...
         </td>
         <td class="flags">
-            <img th:if="${not link.permanent}" class="flag-icon" src="/img/clocks.png" title="Permanent"/>
+            <img th:if="${not link.permanent}" class="flag-icon" src="/img/clocks.png" title="not Permanent"/>
             <img th:if="${link.flagged}" class="flag-icon" src="/img/flag.png" title="Flagged"/>
             <img th:if="${link.test}" class="flag-icon" src="/img/bug.png" title="Is test"/>
         </td>
@@ -78,7 +72,11 @@
 
 <script>
     function afterLoad() {
-        loadPreview();
+        previewElements = document.getElementsByClassName("preview-container");
+        for (var i=0; i < previewElements.length; i++) {
+            var previewElement = previewElements.item(i);
+            loadPreview(previewElement.id);
+        }
     }
 </script>
 

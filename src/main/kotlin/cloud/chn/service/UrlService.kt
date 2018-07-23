@@ -6,6 +6,7 @@ import cloud.chn.repository.UrlRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class UrlService(private val urlRepository: UrlRepository) {
@@ -37,6 +38,10 @@ class UrlService(private val urlRepository: UrlRepository) {
 
     fun getLinks(pageable: Pageable): Page<LinkEntity> {
         return urlRepository.findAll(pageable)
+    }
+
+    fun findLink(id: Long): Optional<LinkEntity> {
+        return urlRepository.findById(id)
     }
 
     fun encodeId(id: Long): String {
