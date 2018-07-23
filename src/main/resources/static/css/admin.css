@@ -58,3 +58,12 @@ body {
 .table-pagination ul.pagination a:hover {
     color: #EE1C25;
 }
+
+.flags {
+    text-align: center;
+}
+
+.flag-icon {
+    width: 32px;
+    height: 32px;
+}

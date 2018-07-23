@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.ModelAndView
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
@@ -22,6 +23,13 @@ class AdminController(private val urlService: UrlService) {
 
         modelAndView.addObject("page", page)
         return modelAndView
+    }
+
+    @GetMapping("/preview")
+    @ResponseBody
+    fun getPreviewHtml(): String {
+        System.out.println("Creating preview html...")
+        return "<img src='/img/bug.png'/>"
     }
 
     fun getDatesHint(created: Timestamp, updated: Timestamp, expired: Timestamp?): String {

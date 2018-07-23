@@ -5,8 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/site.css">
     <link rel="stylesheet" type="text/css" href="/css/admin.css">
+    <script src="/js/preview.js"></script>
 </head>
-<body>
+<body onload="afterLoad()">
+
+
+
+<div id="demo"><img src="/img/placeholder.png"/></div>
+
+
 
 <table class="datatable">
     <thead>
@@ -17,9 +24,7 @@
         <th>Url</th>
         <th>Source</th>
         <th>Created</th>
-        <th>Permanent</th>
-        <th>Flagged</th>
-        <th>Is test</th>
+        <th>Flags</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -34,9 +39,11 @@
             th:title="${@adminController.getDatesHint(link.created, link.updated, link.expired)}">
             Text ...
         </td>
-        <td th:text="${link.permanent}">Text ...</td>
-        <td th:text="${link.flagged}">Text ...</td>
-        <td th:text="${link.test}">Text ...</td>
+        <td class="flags">
+            <img th:if="${not link.permanent}" class="flag-icon" src="/img/clocks.png" title="Permanent"/>
+            <img th:if="${link.flagged}" class="flag-icon" src="/img/flag.png" title="Flagged"/>
+            <img th:if="${link.test}" class="flag-icon" src="/img/bug.png" title="Is test"/>
+        </td>
         <td><button type="button"
                     class="btn btn-primary btn-condensed">
             <i class="glyphicon glyphicon-folder-open"></i>
@@ -67,6 +74,13 @@
         </li>
     </ul>
 </div>
+
+
+<script>
+    function afterLoad() {
+        loadPreview();
+    }
+</script>
 
 </body>
 </html>
