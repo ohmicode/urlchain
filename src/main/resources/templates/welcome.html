@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Url chain</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+<div class="container">
+    <p>Speak friend and enter</p>
+</div>
+
+<div class="data">
+    <form id="welcomeform" method="post" action="/office/welcome">
+        <label for="friend-field">Friend</label>
+        <input id="friend-field" name="friend" class="url-field"/>
+        <br/>
+        <label for="word-field">Word</label>
+        <input id="word-field" type="password" name="word" class="url-field"/>
+        <br/>
+        <input type="button" value="You shall not pass" onclick="sendFields()"/>
+    </form>
+    <br/>
+    <br/>
+    <div id="results"></div>
+</div>
+
+<div class="footer">
+    <p>You are being watched</p>
+</div>
+
+<script>
+    function sendFields() {
+        var body = {'friend': document.getElementById("friend-field").value, 'word': document.getElementById("word-field").value};
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("results").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "/office/check", true);
+        xhttp.send(JSON.stringify(body));
+    }
+</script>
+</body>
+</html>

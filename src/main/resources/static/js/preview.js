@@ -5,6 +5,6 @@ function loadPreview(elementId) {
             document.getElementById(elementId).innerHTML = this.responseText;
         }
     };
-    xhttp.open("GET", "/admin/preview?id=" + elementId, true);
+    xhttp.open("GET", "/office/preview?id=" + elementId, true);
     xhttp.send();
 }

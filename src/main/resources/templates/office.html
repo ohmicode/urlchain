@@ -4,7 +4,7 @@
     <title>Url chain</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/site.css">
-    <link rel="stylesheet" type="text/css" href="/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="/css/office.css">
     <script src="/js/preview.js"></script>
 </head>
 <body onload="afterLoad()">
@@ -49,7 +49,7 @@
 <div class="table-pagination">
     <ul class="pagination">
         <li th:class="${page.number eq 0} ? 'disabled' : ''">
-            <a th:if="${not page.first}" th:href="@{${'/admin/'}(page=${page.number-1},size=${page.size})}">Previous</a>
+            <a th:if="${not page.first}" th:href="@{${'/office/'}(page=${page.number-1},size=${page.size})}">Previous</a>
             <span th:if="${page.first}">Previous</span>
         </li>
 
@@ -57,13 +57,13 @@
             <a th:if="${page.number  eq pageNo}" href="javascript:void(0);">
                 <span th:text="${pageNo + 1}"></span>
             </a>
-            <a th:if="${not (page.number  eq pageNo)}" th:href="@{${'/admin/'}(page=${pageNo},size=${page.size})}">
+            <a th:if="${not (page.number  eq pageNo)}" th:href="@{${'/office/'}(page=${pageNo},size=${page.size})}">
                 <span th:text="${pageNo + 1}"></span>
             </a>
         </li>
 
         <li th:class="${page.number + 1 ge page.totalPages} ? 'disabled' : ''">
-            <a th:if="${not page.last}" th:href="@{${'/admin/'}(page=${page.number+1},size=${page.size})}">Next</a>
+            <a th:if="${not page.last}" th:href="@{${'/office/'}(page=${page.number+1},size=${page.size})}">Next</a>
             <a th:if="${page.last}">Next</a>
         </li>
     </ul>
@@ -72,7 +72,7 @@
 
 <script>
     function afterLoad() {
-        previewElements = document.getElementsByClassName("preview-container");
+        var previewElements = document.getElementsByClassName("preview-container");
         for (var i=0; i < previewElements.length; i++) {
             var previewElement = previewElements.item(i);
             loadPreview(previewElement.id);
