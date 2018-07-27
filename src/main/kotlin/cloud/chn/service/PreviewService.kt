@@ -19,7 +19,7 @@ class PreviewService {
             val doc = Jsoup.connect(url).get()
             val metaOgImage = doc.select(META_OG_IMAGE)
 
-            if (metaOgImage != null) {
+            if (metaOgImage != null && metaOgImage.hasAttr(CONTENT)) {
                 val ogImage = metaOgImage.attr(CONTENT)
                 return unifyUrl(ogImage, url)
             }
