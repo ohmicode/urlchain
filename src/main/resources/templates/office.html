@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/site.css">
     <link rel="stylesheet" type="text/css" href="/css/office.css">
-    <script src="/js/preview.js"></script>
+    <script src="/js/office.js"></script>
 </head>
-<body onload="afterLoad()">
+<body onload="updatePreviewContainers()">
 
 <table class="datatable">
     <thead>
@@ -68,17 +68,6 @@
         </li>
     </ul>
 </div>
-
-
-<script>
-    function afterLoad() {
-        var previewElements = document.getElementsByClassName("preview-container");
-        for (var i=0; i < previewElements.length; i++) {
-            var previewElement = previewElements.item(i);
-            loadPreview(previewElement.id);
-        }
-    }
-</script>
 
 </body>
 </html>
