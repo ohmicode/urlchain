@@ -29,8 +29,9 @@ dependencies {
 
     compile ("org.springframework.boot:spring-boot-starter-data-jpa")
     compile ("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile ("org.springframework.boot:spring-boot-starter-thymeleaf")
 //    compile ("org.springframework.boot:spring-boot-devtools")
+    compile ("org.jsoup:jsoup:1.11.3")
 
     compile ("org.postgresql:postgresql")
 
