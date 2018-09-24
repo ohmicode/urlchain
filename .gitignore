@@ -2,6 +2,7 @@
 .idea/
 build/
 out/
+log/
 gradle/
 gradlew
 gradlew.bat

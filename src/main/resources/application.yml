@@ -1,5 +1,5 @@
 site:
-  url: http://chn.cloud/
+  url: http://pruned.one/
 users:
   friend: friend
   word: 5C014704D487CA8BB3433C5EE0D0E02FAD6B932930F22D90CDB7F90F7FA94BA8
@@ -11,7 +11,7 @@ server:
 
 spring:
   application:
-    name: urlchain
+    name: prunedone
   datasource:
     hikari:
       maximum-pool-size: 5
