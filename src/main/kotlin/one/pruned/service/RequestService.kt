@@ -1,8 +1,8 @@
-package cloud.chn.service
+package one.pruned.service
 
-import cloud.chn.entity.RequestEntity
+import one.pruned.entity.RequestEntity
 import org.springframework.stereotype.Service
-import cloud.chn.repository.RequestRepository
+import one.pruned.repository.RequestRepository
 import java.sql.Timestamp
 import java.time.Instant
 import java.time.LocalDateTime

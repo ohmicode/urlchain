@@ -1,10 +1,10 @@
-package cloud.chn.test.service
+package one.pruned.test.service
 
-import cloud.chn.entity.LinkEntity
-import cloud.chn.exception.ApplicationException
-import cloud.chn.repository.UrlRepository
-import cloud.chn.service.UrlService
-import cloud.chn.test.BaseTest
+import one.pruned.entity.LinkEntity
+import one.pruned.exception.ApplicationException
+import one.pruned.repository.UrlRepository
+import one.pruned.service.UrlService
+import one.pruned.test.BaseTest
 import org.hamcrest.core.SubstringMatcher
 import org.junit.Assert
 import org.junit.Test

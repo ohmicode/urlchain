@@ -1,4 +1,4 @@
-package cloud.chn.access
+package one.pruned.access
 
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime

@@ -1,7 +1,7 @@
-package cloud.chn.controller
+package one.pruned.controller
 
-import cloud.chn.service.RequestService
-import cloud.chn.service.UrlService
+import one.pruned.service.RequestService
+import one.pruned.service.UrlService
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
 

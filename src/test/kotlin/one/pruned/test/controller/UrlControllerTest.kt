@@ -1,8 +1,8 @@
-package cloud.chn.test.controller
+package one.pruned.test.controller
 
-import cloud.chn.controller.UrlController
-import cloud.chn.exception.ApplicationException
-import cloud.chn.test.BaseTest
+import one.pruned.controller.UrlController
+import one.pruned.exception.ApplicationException
+import one.pruned.test.BaseTest
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired

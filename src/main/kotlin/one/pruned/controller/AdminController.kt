@@ -1,9 +1,9 @@
-package cloud.chn.controller
+package one.pruned.controller
 
-import cloud.chn.access.SessionService
-import cloud.chn.exception.ApplicationException
-import cloud.chn.service.PreviewService
-import cloud.chn.service.UrlService
+import one.pruned.access.SessionService
+import one.pruned.exception.ApplicationException
+import one.pruned.service.PreviewService
+import one.pruned.service.UrlService
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Controller

@@ -1,8 +1,8 @@
-package cloud.chn.service
+package one.pruned.service
 
-import cloud.chn.entity.LinkEntity
-import cloud.chn.exception.ApplicationException
-import cloud.chn.repository.UrlRepository
+import one.pruned.entity.LinkEntity
+import one.pruned.exception.ApplicationException
+import one.pruned.repository.UrlRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service

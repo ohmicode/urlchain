@@ -1,4 +1,4 @@
-package cloud.chn.config
+package one.pruned.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

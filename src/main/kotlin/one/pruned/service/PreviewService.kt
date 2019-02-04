@@ -1,4 +1,4 @@
-package cloud.chn.service
+package one.pruned.service
 
 import org.springframework.stereotype.Service
 import java.util.logging.Logger

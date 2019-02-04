@@ -1,8 +1,8 @@
-package cloud.chn.controller
+package one.pruned.controller
 
-import cloud.chn.exception.ApplicationException
-import cloud.chn.service.RequestService
-import cloud.chn.service.UrlService
+import one.pruned.exception.ApplicationException
+import one.pruned.service.RequestService
+import one.pruned.service.UrlService
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

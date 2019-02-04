@@ -1,7 +1,7 @@
-package cloud.chn.controller
+package one.pruned.controller
 
-import cloud.chn.exception.ApplicationException
-import cloud.chn.service.RequestService
+import one.pruned.exception.ApplicationException
+import one.pruned.service.RequestService
 import org.springframework.web.bind.annotation.ExceptionHandler
 import java.util.logging.Logger
 

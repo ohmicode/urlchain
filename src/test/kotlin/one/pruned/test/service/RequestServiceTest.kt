@@ -1,7 +1,7 @@
-package cloud.chn.test.service
+package one.pruned.test.service
 
-import cloud.chn.service.RequestService
-import cloud.chn.test.BaseTest
+import one.pruned.service.RequestService
+import one.pruned.test.BaseTest
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

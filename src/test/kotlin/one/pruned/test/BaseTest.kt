@@ -1,4 +1,4 @@
-package cloud.chn.test
+package one.pruned.test
 
 import org.junit.Before
 import org.springframework.beans.factory.annotation.Autowired

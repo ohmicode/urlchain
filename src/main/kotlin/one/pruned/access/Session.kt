@@ -1,4 +1,4 @@
-package cloud.chn.access
+package one.pruned.access
 
 import java.time.LocalDateTime
 

@@ -1,6 +1,6 @@
-package cloud.chn.repository
+package one.pruned.repository
 
-import cloud.chn.entity.LinkEntity
+import one.pruned.entity.LinkEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 

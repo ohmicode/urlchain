@@ -1,3 +1,3 @@
-package cloud.chn.exception
+package one.pruned.exception
 
 class ApplicationException(message: String) : Throwable(message)

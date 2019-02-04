@@ -1,4 +1,4 @@
-package cloud.chn.entity
+package one.pruned.entity
 
 import java.sql.Timestamp
 import java.time.Instant
