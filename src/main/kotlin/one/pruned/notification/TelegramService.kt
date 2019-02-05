@@ -27,7 +27,7 @@ class TelegramService {
         val urlEncodedMessage = URLEncoder.encode(message, "UTF-8")
         val url = "https://api.telegram.org/bot$token/sendMessage?chat_id=$chatId&text=$urlEncodedMessage"
         try {
-            val response = Jsoup.connect(url).get()
+            val response = Jsoup.connect(url).ignoreContentType(true).get()
             // do we need to check response?
         } catch (err: IOException) {
             log.warning("Cannot notify through Telegram, reason: ${err.message}")
