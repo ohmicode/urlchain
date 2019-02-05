@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.2.51"
+    val kotlinVersion = "1.3.20"
     id("org.springframework.boot") version "2.0.2.RELEASE"
     id("org.jetbrains.kotlin.jvm") version kotlinVersion
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
@@ -26,12 +26,14 @@ repositories {
 dependencies {
     compile ("org.jetbrains.kotlin:kotlin-reflect")
     compile ("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compile ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1")
 
     compile ("org.springframework.boot:spring-boot-starter-data-jpa")
     compile ("org.springframework.boot:spring-boot-starter-web")
     compile ("org.springframework.boot:spring-boot-starter-thymeleaf")
 //    compile ("org.springframework.boot:spring-boot-devtools")
     compile ("org.jsoup:jsoup:1.11.3")
+    compile ("javax.mail:mail:1.4")
 
     compile ("org.postgresql:postgresql")
 

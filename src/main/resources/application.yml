@@ -8,6 +8,23 @@ server:
   servlet:
     session:
       tracking-modes: 'cookie'
+notification:
+  telegram:
+    token: 123456789012345678901234567890
+    chat: 987654321
+  mail:
+    admin: admin@pruned.one
+    subject: pruned info
+email:
+  smtp:
+    user: info
+    from: info@pruned.one
+    password: examplepass
+    host: smtp.pruned.one
+    port: 587
+    auth: true
+    tls:
+      enable: true
 
 spring:
   application:

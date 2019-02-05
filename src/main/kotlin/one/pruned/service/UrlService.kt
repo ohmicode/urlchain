@@ -2,6 +2,7 @@ package one.pruned.service
 
 import one.pruned.entity.LinkEntity
 import one.pruned.exception.ApplicationException
+import one.pruned.notification.NotificationService
 import one.pruned.repository.UrlRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -9,7 +10,8 @@ import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class UrlService(private val urlRepository: UrlRepository) {
+class UrlService(private val urlRepository: UrlRepository,
+                 private val notificationService: NotificationService) {
 
     private final val SYMBOLS = "aA23456789bcdefhkmnprstuvwxyzBCDEFGHKMNPRSTUVWXYZ"
     private final val SIZE = SYMBOLS.length
@@ -32,6 +34,8 @@ class UrlService(private val urlRepository: UrlRepository) {
         linkEntity.url = url
         linkEntity.source = source
         urlRepository.save(linkEntity)
+
+        notificationService.push("Created new short link, id = $id")
 
         return encodeId(id)
     }

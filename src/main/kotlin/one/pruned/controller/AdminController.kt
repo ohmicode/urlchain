@@ -17,11 +17,16 @@ import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import com.fasterxml.jackson.databind.ObjectMapper
+import one.pruned.notification.NotificationService
 import java.security.MessageDigest
 
 @Controller
 @RequestMapping("/office")
-class AdminController(private val urlService: UrlService, private val previewService: PreviewService, private val sessionService: SessionService) {
+class AdminController(private val urlService: UrlService,
+                      private val previewService: PreviewService,
+                      private val sessionService: SessionService,
+                      private val notificationService: NotificationService) {
+
     private final val log = Logger.getLogger("Office interface")
 
     private final val SID = "sid"
@@ -51,6 +56,7 @@ class AdminController(private val urlService: UrlService, private val previewSer
         if (guest.friend == goodFriend && hash(guest.word) == goodWord) {
             val sid = sessionService.createSession(request.remoteAddr)
             response.addCookie(Cookie(SID, sid))
+            notificationService.push("Master has entered the Office from ${request.remoteAddr}")
             return "<h3>welcome back, Master</h3>"
         } else {
             throw ApplicationException("Wrong try for office/welcome: $body from IP ${request.remoteAddr}")
